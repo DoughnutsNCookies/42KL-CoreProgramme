@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: schuah <schuah@student.42.kl.edu.my>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/04 18:26:48 by schuah            #+#    #+#             */
-/*   Updated: 2022/07/05 10:36:44 by schuah           ###   ########.fr       */
+/*   Created: 2022/07/05 16:20:20 by schuah            #+#    #+#             */
+/*   Updated: 2022/07/05 16:41:40 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <limits.h>
 
-void	*ft_calloc(size_t nitems, size_t size)
+void	ft_putnbr_fd(int n, int fd)
 {
-	char	*output;
-	size_t	i;
-
-	i = 0;
-	output = malloc(nitems * size);
-	if (output == NULL || size == SIZE_MAX)
-		return (NULL);
-	while (i < (nitems * size))
+	if (n == -2147483648)
 	{
-		output[i] = 0;
-		i++;
+		write(fd, "-2147483648", 11);
+		return ;
 	}
-	return ((void *)output);
+	else if (n < 0)
+	{
+		write(fd, "-", 1);
+		n *= -1;
+	}
+	if (n >= 10)
+	{
+		ft_putnbr_fd(n / 10, fd);
+		ft_putnbr_fd(n % 10, fd);
+	}
+	else
+		write(fd, &"0123456789"[n], 1);
 }

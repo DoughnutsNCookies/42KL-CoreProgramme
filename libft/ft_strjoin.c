@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: schuah <schuah@student.42.kl.edu.my>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/04 18:26:48 by schuah            #+#    #+#             */
-/*   Updated: 2022/07/05 10:36:44 by schuah           ###   ########.fr       */
+/*   Created: 2022/07/05 11:42:28 by schuah            #+#    #+#             */
+/*   Updated: 2022/07/05 11:56:37 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <limits.h>
 
-void	*ft_calloc(size_t nitems, size_t size)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*output;
 	size_t	i;
+	size_t	j;
 
-	i = 0;
-	output = malloc(nitems * size);
-	if (output == NULL || size == SIZE_MAX)
+	if (!s1 || !s2)
 		return (NULL);
-	while (i < (nitems * size))
-	{
-		output[i] = 0;
-		i++;
-	}
-	return ((void *)output);
+	output = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (output == NULL)
+		return (NULL);
+	i = 0;
+	j = 0;
+	while (s1[i] != '\0')
+		output[j++] = s1[i++];
+	i = 0;
+	while (s2[i] != '\0')
+		output[j++] = s2[i++];
+	output[j] = '\0';
+	return (output);
 }

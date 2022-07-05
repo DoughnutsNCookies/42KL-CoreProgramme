@@ -1,31 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: schuah <schuah@student.42.kl.edu.my>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/04 18:26:48 by schuah            #+#    #+#             */
-/*   Updated: 2022/07/05 10:36:44 by schuah           ###   ########.fr       */
+/*   Created: 2022/07/05 14:28:47 by schuah            #+#    #+#             */
+/*   Updated: 2022/07/05 15:56:43 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <limits.h>
 
-void	*ft_calloc(size_t nitems, size_t size)
+char	*ft_itoa(int n)
 {
-	char	*output;
-	size_t	i;
+	size_t		i;
+	long int	an;
+	char		*output;
 
-	i = 0;
-	output = malloc(nitems * size);
-	if (output == NULL || size == SIZE_MAX)
+	an = n;
+	i = (n <= 0);
+	while (n != 0 && ++i > 0)
+		n = n / 10;
+	output = malloc(sizeof(char) * (i + 1));
+	if (output == NULL)
 		return (NULL);
-	while (i < (nitems * size))
+	if (an < 0)
+		output[0] = '-';
+	if (an < 0)
+		an *= -1;
+	output[i--] = '\0';
+	if (an == 0)
+		output[0] = 48;
+	while (i >= 0 && an)
 	{
-		output[i] = 0;
-		i++;
+		output[i--] = (an % 10) + '0';
+		an /= 10;
 	}
-	return ((void *)output);
+	return (output);
 }

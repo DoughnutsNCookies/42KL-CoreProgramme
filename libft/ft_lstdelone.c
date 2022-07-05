@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: schuah <schuah@student.42.kl.edu.my>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/04 18:26:48 by schuah            #+#    #+#             */
-/*   Updated: 2022/07/05 10:36:44 by schuah           ###   ########.fr       */
+/*   Created: 2022/07/05 18:16:13 by schuah            #+#    #+#             */
+/*   Updated: 2022/07/05 18:28:42 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <limits.h>
 
-void	*ft_calloc(size_t nitems, size_t size)
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	char	*output;
-	size_t	i;
+	t_list	*temp;
 
-	i = 0;
-	output = malloc(nitems * size);
-	if (output == NULL || size == SIZE_MAX)
-		return (NULL);
-	while (i < (nitems * size))
-	{
-		output[i] = 0;
-		i++;
-	}
-	return ((void *)output);
+	if (!lst)
+		return ;
+	(*del)(lst->content);
+	temp = lst->next;
+	free(lst);
+	lst = temp;
 }

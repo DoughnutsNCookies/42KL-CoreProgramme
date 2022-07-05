@@ -1,31 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: schuah <schuah@student.42.kl.edu.my>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/04 18:26:48 by schuah            #+#    #+#             */
-/*   Updated: 2022/07/05 10:36:44 by schuah           ###   ########.fr       */
+/*   Created: 2022/07/05 10:34:18 by schuah            #+#    #+#             */
+/*   Updated: 2022/07/05 11:41:50 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <limits.h>
 
-void	*ft_calloc(size_t nitems, size_t size)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char	*output;
 	size_t	i;
+	size_t	j;
+	char	*output;
 
 	i = 0;
-	output = malloc(nitems * size);
-	if (output == NULL || size == SIZE_MAX)
+	j = 0;
+	if (!s)
 		return (NULL);
-	while (i < (nitems * size))
-	{
-		output[i] = 0;
+	if (start >= ft_strlen(s))
+		output = malloc(1);
+	else if (len >= ft_strlen(s) - start)
+		output = malloc(sizeof(char) * (ft_strlen(s) - start + 1));
+	else
+		output = malloc(sizeof(char) * (len + 1));
+	if (output == NULL)
+		return (NULL);
+	while (i < start)
 		i++;
-	}
-	return ((void *)output);
+	while (j < len && i < ft_strlen(s))
+		output[j++] = s[i++];
+	output[j] = '\0';
+	return (output);
 }
