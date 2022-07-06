@@ -40,12 +40,9 @@ char	*ft_strndup(char *str, size_t n)
 	output = malloc(sizeof(char) * n + 1);
 	if (output == NULL)
 		return (NULL);
-	i = 0;
-	while (i < n)
-	{
+	i = -1;
+	while (++i < n)
 		output[i] = str[i];
-		i++;
-	}
 	output[i] = '\0';
 	return (output);
 }
