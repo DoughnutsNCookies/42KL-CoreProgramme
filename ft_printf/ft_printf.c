@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42.kl.edu.my>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 11:22:30 by schuah            #+#    #+#             */
-/*   Updated: 2022/07/07 19:35:10 by schuah           ###   ########.fr       */
+/*   Updated: 2022/07/07 21:01:22 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,13 @@ int	ft_print(va_list args, const char *str, int index, int wc)
 			wc += ft_printpointer(va_arg(args, unsigned long), 1, 0) + 1;
 		else if (str[index] == '%' && (str[index + 1] == 'd'
 				|| str[index + 1] == 'i') && ++index > 0)
-			wc += ft_printnumber(va_arg(args, int), 1) -1;
+			wc += ft_printnumber(va_arg(args, int), 1) - 1;
 		else if (str[index] == '%' && str[index + 1] == 'u' && ++index > 0)
 			wc += ft_printun(va_arg(args, unsigned int), 1, 0) - 1;
 		else if (str[index] == '%' && (str[index + 1] == 'x'
 				|| str[index + 1] == 'X') && ++index > 0)
-			wc += ft_print_hex(va_arg(args, unsigned int), 1, 0, str[index]) - 1;
+			wc += ft_print_hex(va_arg(args, unsigned int), 1, 0, str[index])
+				- 1;
 		else if (str[index] == '%' && str[index + 1] == '%' && ++index > 0)
 			wc += ft_putchar_fd('%', 1) - 1;
 		else
