@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 17:11:36 by schuah            #+#    #+#             */
-/*   Updated: 2022/07/15 10:48:17 by schuah           ###   ########.fr       */
+/*   Updated: 2022/07/16 23:07:08 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ char	*savepoint(char *input);
 char	*get_read(char *input);
 char	*get_next_nl(int fd, char *output);
 char	*get_next_line(int fd);
-int		ft_strlen(char *str);
 char	*ft_strcomb(char *dst, char *src);
 int		checkend(char c);
 

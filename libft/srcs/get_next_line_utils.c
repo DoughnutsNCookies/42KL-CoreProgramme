@@ -6,23 +6,11 @@
 /*   By: schuah <schuah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 20:34:26 by schuah            #+#    #+#             */
-/*   Updated: 2022/07/13 12:09:59 by schuah           ###   ########.fr       */
+/*   Updated: 2022/07/16 23:05:42 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
-int	ft_strlen(char *str)
-{
-	int	len;
-
-	len = 0;
-	if (str == NULL)
-		return (0);
-	while (str[len] != '\0')
-		len++;
-	return (len);
-}
 
 char	*ft_strcomb(char *dst, char *src)
 {
