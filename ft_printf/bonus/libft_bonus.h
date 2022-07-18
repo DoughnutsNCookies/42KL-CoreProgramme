@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #ifndef LIBFT_BONUS_H
-# define LIBFT__BONUS_H
+# define LIBFT_BONUS_H
 
 # include <stdlib.h>
 # include <unistd.h>
