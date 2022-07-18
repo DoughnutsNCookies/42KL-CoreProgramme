@@ -6,10 +6,11 @@
 /*   By: schuah <schuah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 17:08:24 by schuah            #+#    #+#             */
-/*   Updated: 2022/07/14 11:31:44 by schuah           ###   ########.fr       */
+/*   Updated: 2022/07/18 11:12:36 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include "get_next_line.h"
 
 int	check_is_nl(char *str)
@@ -39,7 +40,7 @@ char	*savepoint(char *input)
 		free(input);
 		return (NULL);
 	}
-	output = malloc(sizeof(char) * (ft_strlen(input) - i++ + 1));
+	output = malloc(sizeof(char) * ((int)ft_strlen(input) - i++ + 1));
 	if (output == NULL)
 		return (NULL);
 	j = 0;

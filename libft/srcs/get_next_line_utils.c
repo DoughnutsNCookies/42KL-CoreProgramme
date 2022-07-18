@@ -6,10 +6,11 @@
 /*   By: schuah <schuah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 20:34:26 by schuah            #+#    #+#             */
-/*   Updated: 2022/07/16 23:05:42 by schuah           ###   ########.fr       */
+/*   Updated: 2022/07/18 11:13:31 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include "get_next_line.h"
 
 char	*ft_strcomb(char *dst, char *src)
@@ -25,7 +26,8 @@ char	*ft_strcomb(char *dst, char *src)
 			return (NULL);
 		dst[0] = '\0';
 	}
-	output = malloc(sizeof(char) * (ft_strlen(dst) + ft_strlen(src) + 1));
+	output = malloc(sizeof(char)
+			* ((int)ft_strlen(dst) + (int)ft_strlen(src) + 1));
 	if (output == NULL)
 		return (NULL);
 	i = -1;
@@ -35,7 +37,7 @@ char	*ft_strcomb(char *dst, char *src)
 	j = 0;
 	while (src[j] != '\0')
 		output[i++] = src[j++];
-	output[ft_strlen(dst) + ft_strlen(src)] = '\0';
+	output[(int)ft_strlen(dst) + (int)ft_strlen(src)] = '\0';
 	free(dst);
 	return (output);
 }
