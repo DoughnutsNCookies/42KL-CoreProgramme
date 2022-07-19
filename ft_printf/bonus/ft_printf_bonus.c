@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 11:22:30 by schuah            #+#    #+#             */
-/*   Updated: 2022/07/15 13:04:03 by schuah           ###   ########.fr       */
+/*   Updated: 2022/07/19 16:12:45 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	print_with_format(char format, va_list *args, t_flags *flags, int *wc)
 	else if (format == 'X')
 		print_hf(va_arg(*args, int), "0123456789ABCDEF", flags, wc);
 	else if (format == '%' && ++(*wc))
-		ft_putchar_fd('%', 1);
+		print_cf('%', flags, wc);
 }
 
 void	get_format(char format, va_list *args, t_flags *flags, int *wc)
