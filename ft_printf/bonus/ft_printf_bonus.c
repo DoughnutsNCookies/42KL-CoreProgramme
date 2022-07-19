@@ -28,7 +28,7 @@ void	print_with_format(char format, va_list *args, t_flags *flags, int *wc)
 		print_hf(va_arg(*args, int), "0123456789abcdef", flags, wc);
 	else if (format == 'X')
 		print_hf(va_arg(*args, int), "0123456789ABCDEF", flags, wc);
-	else if (format == '%' && ++(*wc))
+	else if (format == '%')
 		print_cf('%', flags, wc);
 }
 
