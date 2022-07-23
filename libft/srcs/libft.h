@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 11:03:32 by schuah            #+#    #+#             */
-/*   Updated: 2022/07/18 11:11:24 by schuah           ###   ########.fr       */
+/*   Updated: 2022/07/23 17:15:03 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
 void	*ft_memchr(const void *str, int c, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 char	*ft_strnstr(const char *str, const char *to_find, size_t len);
-int		ft_atoi(const char *str);
+long	ft_atoi(const char *str);
 void	*ft_calloc(size_t nitems, size_t size);
 char	*ft_strdup(const char *src);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
@@ -68,5 +68,7 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+void	swap(int *a, int *b);
+int		ft_isspace(char c);
 
 #endif

@@ -62,7 +62,9 @@ SRC_FILES		=	ft_isalpha \
 					ft_printp_with_flags \
 					ft_prints_with_flags \
 					get_next_line \
-					get_next_line_utils
+					get_next_line_utils \
+					ft_swap \
+					ft_isspace
 
 SRCS 			= 	$(addprefix $(SRCS_DIR), $(addsuffix .c, $(SRC_FILES)))
 OBJS 			= 	$(addprefix $(OBJS_DIR), $(addsuffix .o, $(SRC_FILES)))

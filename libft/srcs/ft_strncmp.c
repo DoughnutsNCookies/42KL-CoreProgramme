@@ -24,6 +24,6 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	while (++index < n && diff == 0 && s1[index] != '\0' && s2[index] != '\0')
 		diff = (unsigned char)s1[index] - (unsigned char)s2[index];
 	if (index < n && diff == 0 && (s1[index] == '\0' || s2[index] == '\0'))
-		diff = (unsigned char)s1[index] - (unsigned char)s2[index];
+			diff = (unsigned char)s1[index] - (unsigned char)s2[index];
 	return (diff);
 }
