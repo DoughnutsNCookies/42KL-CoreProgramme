@@ -12,20 +12,20 @@
 
 #include "libft.h"
 
-int	getcount(char const *s, char c)
+int	ft_getwc(char const *str, char c)
 {
 	size_t	count;
 	size_t	i;
 
 	i = 0;
 	count = 0;
-	while (s[i] != '\0')
+	while (str[i] != '\0')
 	{
-		while (s[i] == c)
+		while (str[i] == c)
 			i++;
-		if (s[i] == '\0')
+		if (str[i] == '\0')
 			break ;
-		while (s[i] != '\0' && s[i] != c)
+		while (str[i] != '\0' && str[i] != c)
 			i++;
 		count++;
 	}
@@ -56,7 +56,7 @@ char	**ft_split(char const *s, char c)
 
 	if (!s)
 		return (NULL);
-	count = getcount(s, c);
+	count = ft_getwc(s, c);
 	output = malloc(sizeof(char *) * count + 1);
 	if (output == NULL)
 		return (NULL);
