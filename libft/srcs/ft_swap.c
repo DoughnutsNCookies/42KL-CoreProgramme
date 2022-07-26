@@ -6,13 +6,13 @@
 /*   By: schuah <schuah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 17:47:13 by schuah            #+#    #+#             */
-/*   Updated: 2022/07/20 17:48:38 by schuah           ###   ########.fr       */
+/*   Updated: 2022/07/25 12:07:39 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	swap(int *a, int *b)
+void	ft_swap(int *a, int *b)
 {
 	int	temp;
 

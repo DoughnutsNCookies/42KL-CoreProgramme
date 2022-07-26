@@ -3,29 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: schuah <schuah@student.42.kl.edu.my>       +#+  +:+       +#+        */
+/*   By: schuah <schuah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:02:20 by schuah            #+#    #+#             */
-/*   Updated: 2022/07/07 10:29:15 by schuah           ###   ########.fr       */
+/*   Updated: 2022/07/23 21:09:01 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_getwc(char const *str, char c)
+int	ft_getwc(char const *s, char c)
 {
 	size_t	count;
 	size_t	i;
 
 	i = 0;
 	count = 0;
-	while (str[i] != '\0')
+	while (s[i] != '\0')
 	{
-		while (str[i] == c)
+		while (s[i] == c)
 			i++;
-		if (str[i] == '\0')
+		if (s[i] == '\0')
 			break ;
-		while (str[i] != '\0' && str[i] != c)
+		while (s[i] != '\0' && s[i] != c)
 			i++;
 		count++;
 	}
