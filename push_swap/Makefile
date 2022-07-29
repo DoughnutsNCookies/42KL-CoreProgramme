@@ -6,7 +6,7 @@
 #    By: schuah <schuah@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/07 10:52:13 by schuah            #+#    #+#              #
-#    Updated: 2022/07/28 20:49:31 by schuah           ###   ########.fr        #
+#    Updated: 2022/07/29 16:27:31 by schuah           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,10 @@ SRCS_FILES	=	ps_main_bonus \
 				ps_sortsmall_bonus \
 				ps_operators_bonus \
 				ps_sorthundred_bonus
-BONUS_FILES	=	checker_main_bonus
+BONUS_FILES	=	checker_main_bonus \
+				checker_getters_bonus \
+				checker_getters2_bonus \
+				checker_quicksort_bonus
 SRCS		= 	$(addprefix $(SRCS_DIR), $(addsuffix .c, $(SRCS_FILES)))
 OBJS		= 	$(addprefix $(OBJS_DIR), $(addsuffix .o, $(SRCS_FILES)))
 BONUS_SRCS	=	$(addprefix $(BONUS_DIR), $(addsuffix .c, $(BONUS_FILES)))
