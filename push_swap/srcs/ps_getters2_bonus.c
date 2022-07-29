@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 16:49:39 by schuah            #+#    #+#             */
-/*   Updated: 2022/07/29 12:43:00 by schuah           ###   ########.fr       */
+/*   Updated: 2022/07/29 15:47:09 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,14 @@ int	get_error(t_psinfo *psinfo, char *str, int j)
 
 	i = -1;
 	while (str[++i] != '\0')
-		if (ft_isdigit(str[i]) == 0 && (str[i] != '-'))
+	{
+		if (ft_isdigit(str[i]) == 0)
+		{
+			if (str[i] == '-' && ft_isdigit(str[i + 1]) && str[i - 1] == '\0')
+				continue ;
 			return (1);
+		}
+	}
 	if (ft_atoi(str) < -2147483648)
 		return (2);
 	if (ft_atoi(str) > 2147483647)
