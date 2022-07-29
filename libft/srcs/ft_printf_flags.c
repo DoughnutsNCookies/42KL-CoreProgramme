@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 13:30:15 by schuah            #+#    #+#             */
-/*   Updated: 2022/07/16 16:30:16 by schuah           ###   ########.fr       */
+/*   Updated: 2022/07/29 21:18:26 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	default_flag(t_flags *flags)
 	flags->d = ' ';
 }
 
-int	is_format(char c)
+static int	is_format(char c)
 {
 	char	*formats;
 	int		i;
@@ -39,7 +39,7 @@ int	is_format(char c)
 	return (0);
 }
 
-int	get_space(const char *str, int *i)
+static int	get_space(const char *str, int *i)
 {
 	int	wc;
 

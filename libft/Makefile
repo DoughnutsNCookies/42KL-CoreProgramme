@@ -64,7 +64,10 @@ SRC_FILES		=	ft_isalpha \
 					get_next_line \
 					get_next_line_utils \
 					ft_swap \
-					ft_isspace
+					ft_isspace \
+					ft_ultoa_base \
+					ft_uitoa_base \
+					ft_uitoa
 
 SRCS 			= 	$(addprefix $(SRCS_DIR), $(addsuffix .c, $(SRC_FILES)))
 OBJS 			= 	$(addprefix $(OBJS_DIR), $(addsuffix .o, $(SRC_FILES)))

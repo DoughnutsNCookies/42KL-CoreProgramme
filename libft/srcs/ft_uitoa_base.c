@@ -1,27 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_uitoa_base.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: schuah <schuah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/12 17:11:36 by schuah            #+#    #+#             */
-/*   Updated: 2022/07/29 21:15:40 by schuah           ###   ########.fr       */
+/*   Created: 2022/07/29 21:19:17 by schuah            #+#    #+#             */
+/*   Updated: 2022/07/29 21:19:30 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 42
-# endif
+char	*ft_uitoa_base(unsigned int n, char *base)
+{
+	int				i;
+	char			*output;
+	unsigned int	temp;
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <fcntl.h>
-
-char	*ft_strcomb(char *dst, char *src);
-int		checkend(char c);
-
-#endif
+	i = 1;
+	temp = n;
+	while (temp >= 16 && (temp / 16) > 0 && ++i)
+		temp /= 16;
+	output = malloc(sizeof(char) * (i + 1));
+	output[i] = '\0';
+	while (n >= 16)
+	{
+		output[--i] = base[n % 16];
+		n /= 16;
+	}
+	output[--i] = base[n % 16];
+	return (output);
+}

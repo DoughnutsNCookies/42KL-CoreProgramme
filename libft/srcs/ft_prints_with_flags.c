@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 10:26:33 by schuah            #+#    #+#             */
-/*   Updated: 2022/07/15 13:31:48 by schuah           ###   ########.fr       */
+/*   Updated: 2022/07/29 21:22:53 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	print_dupe(char c, int count)
 	return (len);
 }
 
-void	print_with_flag(char *str, t_flags *flags, int *wc)
+static void	print_with_flag(char *str, t_flags *flags, int *wc)
 {
 	if (flags->dot == 1 && (flags->prec <= flags->width))
 		*wc += print_dupe(flags->d, flags->width - flags->prec);
