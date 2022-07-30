@@ -6,14 +6,14 @@
 /*   By: schuah <schuah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 16:17:52 by schuah            #+#    #+#             */
-/*   Updated: 2022/07/29 16:29:55 by schuah           ###   ########.fr       */
+/*   Updated: 2022/07/30 13:59:06 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker_bonus.h"
 
 /* Turns all input into a string of numbers seperated by spaces */
-static char	*get_inputstr(char **av)
+static char	*get_inputstr(t_psinfo *psinfo, char **av)
 {
 	int		i;
 	char	*temp;
@@ -22,14 +22,23 @@ static char	*get_inputstr(char **av)
 
 	i = 0;
 	output = malloc(sizeof(char));
+	if (output == NULL)
+		return (NULL);
 	while (av[++i] != 0)
 	{
+		if (av[i][0] == '\0')
+		{
+			free(output);
+			return (NULL);
+		}
 		temp = ft_strjoin(output, av[i]);
 		temp2 = output;
 		output = ft_strjoin(temp, " ");
 		free(temp2);
 		free(temp);
 	}
+	psinfo->stack_a = malloc(sizeof(int) * ft_getwc(output, ' '));
+	psinfo->stack_b = malloc(sizeof(int) * ft_getwc(output, ' '));
 	return (output);
 }
 
@@ -42,7 +51,7 @@ static void	get_converted_stack(t_psinfo *psinfo)
 	int	j;
 
 	sorted_tmp = get_stack(psinfo, 'a');
-	quicksort(sorted_tmp, 0, psinfo->len_a - 1);
+	ft_quicksort(sorted_tmp, 0, psinfo->len_a - 1);
 	len = psinfo->len_a;
 	i = 0;
 	j = 0;
@@ -70,13 +79,13 @@ static int	get_input_from_av(t_psinfo *psinfo, char **av)
 	int		j;
 	int		errno;
 
-	i = 0;
-	str = get_inputstr(av);
-	psinfo->stack_a = malloc(sizeof(int) * ft_getwc(str, ' '));
-	psinfo->stack_b = malloc(sizeof(int) * ft_getwc(str, ' '));
+	str = get_inputstr(psinfo, av);
+	if (str == NULL)
+		return (1);
 	if (psinfo->stack_a == NULL || psinfo->stack_b == NULL)
 		return (0);
 	numbers = ft_split(str, ' ');
+	i = 0;
 	j = 0;
 	while (numbers[j] != 0)
 	{

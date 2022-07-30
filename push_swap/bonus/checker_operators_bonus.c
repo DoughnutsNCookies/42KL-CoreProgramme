@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_operators_bonus.c                               :+:      :+:    :+:   */
+/*   checker_operators_bonus.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: schuah <schuah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/25 12:11:37 by schuah            #+#    #+#             */
-/*   Updated: 2022/07/30 12:29:34 by schuah           ###   ########.fr       */
+/*   Created: 2022/07/30 12:26:55 by schuah            #+#    #+#             */
+/*   Updated: 2022/07/30 12:42:52 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ps_bonus.h"
+#include "checker_bonus.h"
 
 /* List of operations to manipulate the stack */
 void	stack_op(t_psinfo *psinfo, char *str)
 {
 	if (ft_strncmp(str, "sa", 3) == 0 || ft_strncmp(str, "sb", 3) == 0
 		|| ft_strncmp(str, "ss", 3) == 0)
-		ps_s(psinfo, str, 1);
+		ps_s(psinfo, str, 0);
 	if (ft_strncmp(str, "pa", 3) == 0 || ft_strncmp(str, "pb", 3) == 0)
-		ps_p(psinfo, str, 1);
+		ps_p(psinfo, str, 0);
 	if (ft_strncmp(str, "rra", 4) == 0 || ft_strncmp(str, "rrb", 4) == 0
 		|| ft_strncmp(str, "rrr", 4) == 0)
-		ps_rr(psinfo, str, 1);
+		ps_rr(psinfo, str, 0);
 	if (ft_strncmp(str, "ra", 3) == 0 || ft_strncmp(str, "rb", 3) == 0
 		|| ft_strncmp(str, "rr", 3) == 0)
-		ps_r(psinfo, str, 1);
+		ps_r(psinfo, str, 0);
 }
 
 /* Swap the first 2 numbers at the top of the stack */

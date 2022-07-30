@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 16:49:39 by schuah            #+#    #+#             */
-/*   Updated: 2022/07/29 15:47:09 by schuah           ###   ########.fr       */
+/*   Updated: 2022/07/30 13:56:54 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	get_converted_stack(t_psinfo *psinfo)
 	int	j;
 
 	sorted_tmp = get_stack(psinfo, 'a');
-	quicksort(sorted_tmp, 0, psinfo->len_a - 1);
+	ft_quicksort(sorted_tmp, 0, psinfo->len_a - 1);
 	len = psinfo->len_a;
 	i = 0;
 	j = 0;
@@ -87,4 +87,18 @@ int	get_error(t_psinfo *psinfo, char *str, int j)
 		if (psinfo->stack_a[i] == ft_atoi(str))
 			return (4);
 	return (0);
+}
+
+/* Checks whether the array is sorted */
+int	is_sorted(int *array, int len)
+{
+	int	i;
+
+	i = 0;
+	while (++i < len)
+	{
+		if (array[i - 1] > array[i])
+			return (0);
+	}
+	return (1);
 }

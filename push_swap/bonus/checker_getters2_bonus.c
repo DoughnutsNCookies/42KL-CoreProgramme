@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 16:18:58 by schuah            #+#    #+#             */
-/*   Updated: 2022/07/29 16:30:16 by schuah           ###   ########.fr       */
+/*   Updated: 2022/07/30 13:51:34 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,8 @@ int	get_error(t_psinfo *psinfo, char *str, int j)
 	int	i;
 
 	i = -1;
+	if (str[0] == '\0')
+		return (1);
 	while (str[++i] != '\0')
 	{
 		if (ft_isdigit(str[i]) == 0)
@@ -85,4 +87,18 @@ int	get_error(t_psinfo *psinfo, char *str, int j)
 		if (psinfo->stack_a[i] == ft_atoi(str))
 			return (4);
 	return (0);
+}
+
+/* Checks whether the array is sorted */
+int	is_sorted(int *array, int len)
+{
+	int	i;
+
+	i = 0;
+	while (++i < len)
+	{
+		if (array[i - 1] > array[i])
+			return (0);
+	}
+	return (1);
 }

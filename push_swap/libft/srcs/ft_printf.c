@@ -6,13 +6,14 @@
 /*   By: schuah <schuah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 11:22:30 by schuah            #+#    #+#             */
-/*   Updated: 2022/07/15 13:31:08 by schuah           ###   ########.fr       */
+/*   Updated: 2022/07/29 21:17:45 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	print_with_format(char format, va_list *args, t_flags *flags, int *wc)
+static void	print_with_format(
+	char format, va_list *args, t_flags *flags, int *wc)
 {
 	if (format == 'c')
 		print_cf(va_arg(*args, int), flags, wc);
@@ -32,7 +33,7 @@ void	print_with_format(char format, va_list *args, t_flags *flags, int *wc)
 		ft_putchar_fd('%', 1);
 }
 
-void	get_format(char format, va_list *args, t_flags *flags, int *wc)
+static void	get_format(char format, va_list *args, t_flags *flags, int *wc)
 {
 	if (flags->zero == 1)
 		flags->d = '0';

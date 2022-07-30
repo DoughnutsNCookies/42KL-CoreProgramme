@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 15:18:55 by schuah            #+#    #+#             */
-/*   Updated: 2022/07/29 10:54:28 by schuah           ###   ########.fr       */
+/*   Updated: 2022/07/30 13:57:04 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	ps_sortthree(t_psinfo *psinfo)
 	if (psinfo->len_a == 2)
 		stack_op(psinfo, "sa");
 	sorted_stack = get_stack(psinfo, 'a');
-	quicksort(sorted_stack, 0, psinfo->len_a - 1);
+	ft_quicksort(sorted_stack, 0, psinfo->len_a - 1);
 	mp = sorted_stack[psinfo->len_a / 2];
 	if (psinfo->stack_a[2] == mp && psinfo->stack_a[0] > mp)
 		stack_op(psinfo, "ra");
@@ -83,7 +83,7 @@ void	ps_sortfive(t_psinfo *psinfo)
 	int	sp;
 
 	sorted_stack = get_stack(psinfo, 'a');
-	quicksort(sorted_stack, 0, psinfo->len_a - 1);
+	ft_quicksort(sorted_stack, 0, psinfo->len_a - 1);
 	sp = sorted_stack[0];
 	ps_getthree(psinfo, sorted_stack, 0, sp);
 	ps_sortthree(psinfo);

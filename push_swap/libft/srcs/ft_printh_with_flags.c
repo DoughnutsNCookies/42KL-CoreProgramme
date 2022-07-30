@@ -6,34 +6,13 @@
 /*   By: schuah <schuah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 12:18:02 by schuah            #+#    #+#             */
-/*   Updated: 2022/07/15 14:34:42 by schuah           ###   ########.fr       */
+/*   Updated: 2022/07/29 21:19:59 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_uitoa_base(unsigned int n, char *base)
-{
-	int				i;
-	char			*output;
-	unsigned int	temp;
-
-	i = 1;
-	temp = n;
-	while (temp >= 16 && (temp / 16) > 0 && ++i)
-		temp /= 16;
-	output = malloc(sizeof(char) * (i + 1));
-	output[i] = '\0';
-	while (n >= 16)
-	{
-		output[--i] = base[n % 16];
-		n /= 16;
-	}
-	output[--i] = base[n % 16];
-	return (output);
-}
-
-void	print_hexstart(t_flags *flags, unsigned int n, int *wc, char *base)
+static void	print_hexstart(t_flags *flags, unsigned int n, int *wc, char *base)
 {
 	if (flags->hash == 1 && n > 0)
 	{

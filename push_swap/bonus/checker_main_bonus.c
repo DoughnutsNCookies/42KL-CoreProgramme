@@ -6,11 +6,37 @@
 /*   By: schuah <schuah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 18:25:50 by schuah            #+#    #+#             */
-/*   Updated: 2022/07/29 16:22:05 by schuah           ###   ########.fr       */
+/*   Updated: 2022/07/30 14:02:46 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker_bonus.h"
+
+static int	read_instruction(t_psinfo *psinfo)
+{
+	char	*str;
+
+	str = get_next_line(STDIN_FILENO);
+	while (str != 0)
+	{
+		str = ft_strtrim(str, "\n");
+		stack_op(psinfo, str);
+		ps_printall(psinfo);
+		str = get_next_line(STDIN_FILENO);
+	}
+	if (is_sorted(psinfo->stack_a, psinfo->len_a) && psinfo->len_b == 0)
+		return (ft_printf("OK\n"));
+	else
+		return (ft_printf("KO\n"));
+}
+
+/* Frees everything that had used malloc */
+static void	free_everything(t_psinfo *psinfo)
+{
+	free(psinfo->stack_b);
+	free(psinfo->stack_a);
+	free(psinfo);
+}
 
 /* Sets the default value / initializing values to the struct */
 static void	default_flag_ps(t_psinfo *psinfo)
@@ -23,6 +49,7 @@ static void	default_flag_ps(t_psinfo *psinfo)
 	psinfo->stack_b = NULL;
 }
 
+/* Start of the main function */
 int	main(int ac, char **av)
 {
 	t_psinfo	*psinfo;
@@ -31,8 +58,9 @@ int	main(int ac, char **av)
 	{
 		psinfo = malloc(sizeof(t_psinfo));
 		default_flag_ps(psinfo);
-		get_data(psinfo, av);
-		ps_printall(psinfo);
+		if (get_data(psinfo, av) == 0)
+			read_instruction(psinfo);
+		free_everything(psinfo);
 	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 16:18:10 by schuah            #+#    #+#             */
-/*   Updated: 2022/07/29 15:08:38 by schuah           ###   ########.fr       */
+/*   Updated: 2022/07/30 13:57:12 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	can_push(t_psinfo *psinfo, int swap)
 	int	*sorted_stack;
 
 	sorted_stack = get_stack(psinfo, 'b');
-	quicksort(sorted_stack, 0, psinfo->len_b - 1);
+	ft_quicksort(sorted_stack, 0, psinfo->len_b - 1);
 	if (psinfo->stack_b[0] == sorted_stack[psinfo->len_b - 2] && swap == 0)
 	{
 		stack_op(psinfo, "pa");
@@ -84,7 +84,7 @@ void	make_stacks(t_psinfo *psinfo, int chunk_size, int n, int pa_count)
 	int	*sorted_stack;
 
 	sorted_stack = get_stack(psinfo, 'a');
-	quicksort(sorted_stack, 0, psinfo->len_a - 1);
+	ft_quicksort(sorted_stack, 0, psinfo->len_a - 1);
 	while (psinfo->len_a)
 	{
 		if (psinfo->stack_a[0] < (chunk_size * n))
@@ -108,8 +108,8 @@ int	ps_sorthundred(t_psinfo *psinfo)
 {
 	int	chunk_size;
 
-	chunk_size = psinfo->len_a / 12 + 22;
+	chunk_size = psinfo->len_a / 12 + 30;
 	make_stacks(psinfo, chunk_size, 1, 0);
-	sort_back(psinfo);
+	// sort_back(psinfo);
 	return (0);
 }

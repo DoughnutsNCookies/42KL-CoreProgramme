@@ -6,13 +6,13 @@
 /*   By: schuah <schuah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 19:48:45 by schuah            #+#    #+#             */
-/*   Updated: 2022/07/16 22:50:53 by schuah           ###   ########.fr       */
+/*   Updated: 2022/07/29 21:20:51 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	print_pointer_space(t_flags *flags, int *wc, char *n)
+static void	print_pointer_space(t_flags *flags, int *wc, char *n)
 {
 	if (flags->dot == 1 && (flags->prec <= flags->width))
 		*wc += print_dupe(flags->d, flags->width - flags->prec);
@@ -47,7 +47,7 @@ void	print_stonf(char *n, t_flags *flags, int *wc)
 	}
 }
 
-void	print_number_space(t_flags *flags, int *wc, char *n)
+static void	print_number_space(t_flags *flags, int *wc, char *n)
 {
 	int	len;
 
@@ -65,7 +65,7 @@ void	print_number_space(t_flags *flags, int *wc, char *n)
 	*wc += len;
 }
 
-void	check_splus(t_flags *flags, int *wc, int n)
+static void	check_splus(t_flags *flags, int *wc, int n)
 {
 	if (n >= 0 && flags->spc == 1)
 	{

@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 14:42:09 by schuah            #+#    #+#             */
-/*   Updated: 2022/07/29 12:28:33 by schuah           ###   ########.fr       */
+/*   Updated: 2022/07/30 14:02:13 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	ps_p(t_psinfo *psinfo, char *str, int print);
 void	ps_r(t_psinfo *psinfo, char *str, int print);
 void	ps_rr(t_psinfo *psinfo, char *str, int print);
 
-/* Helper functions */
+/* Helper function */
 void	ps_printall(t_psinfo *psinfo);
 
 #endif

@@ -6,14 +6,14 @@
 /*   By: schuah <schuah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 17:08:24 by schuah            #+#    #+#             */
-/*   Updated: 2022/07/18 11:12:36 by schuah           ###   ########.fr       */
+/*   Updated: 2022/07/29 21:15:31 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "get_next_line.h"
 
-int	check_is_nl(char *str)
+static int	check_is_nl(char *str)
 {
 	int	i;
 
@@ -26,7 +26,7 @@ int	check_is_nl(char *str)
 	return (0);
 }
 
-char	*savepoint(char *input)
+static char	*savepoint(char *input)
 {
 	int		i;
 	int		j;
@@ -51,7 +51,7 @@ char	*savepoint(char *input)
 	return (output);
 }
 
-char	*get_read(char *input)
+static char	*get_read(char *input)
 {
 	int		i;
 	char	*output;
@@ -76,7 +76,7 @@ char	*get_read(char *input)
 	return (output);
 }
 
-char	*get_next_nl(int fd, char *output)
+static char	*get_next_nl(int fd, char *output)
 {
 	char	*buf;
 	int		i;
