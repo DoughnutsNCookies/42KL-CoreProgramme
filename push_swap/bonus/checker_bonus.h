@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 18:26:17 by schuah            #+#    #+#             */
-/*   Updated: 2022/07/30 13:56:08 by schuah           ###   ########.fr       */
+/*   Updated: 2022/07/30 16:37:59 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int		get_error(t_psinfo *psinfo, char *str, int j);
 int		is_sorted(int *array, int len);
 
 /* Operators */
-void	stack_op(t_psinfo *psinfo, char *str);
+int		stack_op(t_psinfo *psinfo, char *str);
 void	ps_s(t_psinfo *psinfo, char *str, int print);
 void	ps_p(t_psinfo *psinfo, char *str, int print);
 void	ps_r(t_psinfo *psinfo, char *str, int print);

@@ -6,14 +6,14 @@
 /*   By: schuah <schuah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 12:26:55 by schuah            #+#    #+#             */
-/*   Updated: 2022/07/30 15:35:20 by schuah           ###   ########.fr       */
+/*   Updated: 2022/07/30 16:39:15 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker_bonus.h"
 
 /* List of operations to manipulate the stack */
-void	stack_op(t_psinfo *psinfo, char *str)
+int	stack_op(t_psinfo *psinfo, char *str)
 {
 	if (ft_strncmp(str, "sa", 3) == 0 || ft_strncmp(str, "sb", 3) == 0
 		|| ft_strncmp(str, "ss", 3) == 0)
@@ -27,7 +27,8 @@ void	stack_op(t_psinfo *psinfo, char *str)
 		|| ft_strncmp(str, "rr", 3) == 0)
 		ps_r(psinfo, str, 0);
 	else
-		ft_printf("Error: Invalid instruction\n");
+		return (ft_printf("Error: Invalid instruction\n"));
+	return (0);
 }
 
 /* Swap the first 2 numbers at the top of the stack */

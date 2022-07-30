@@ -6,7 +6,7 @@
 #    By: schuah <schuah@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/07 10:52:13 by schuah            #+#    #+#              #
-#    Updated: 2022/07/30 13:59:44 by schuah           ###   ########.fr        #
+#    Updated: 2022/07/30 16:31:43 by schuah           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,7 @@ LIBFT_DIR	=	libft
 OBJS_DIR	=	objs/
 BONUS_DIR	=	bonus/
 
-all:			$(NAME) $(BONUS_NAME)
+all:			$(NAME)
 
 $(OBJS_DIR)%.o: $(SRCS_DIR)%.c
 				$(CC) $(CFLAGS) $(HEADER) -c $< -o $@

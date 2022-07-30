@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 18:25:50 by schuah            #+#    #+#             */
-/*   Updated: 2022/07/30 15:31:58 by schuah           ###   ########.fr       */
+/*   Updated: 2022/07/30 16:39:06 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,20 @@
 static int	read_instruction(t_psinfo *psinfo)
 {
 	char	*str;
+	char	*temp;
+	char	*temp2;
+	int		error;
 
 	str = get_next_line(STDIN_FILENO);
 	while (str != 0)
 	{
-		str = ft_strtrim(str, "\n");
-		stack_op(psinfo, str);
+		temp = ft_strtrim(str, "\n");
+		temp2 = str;
+		error = stack_op(psinfo, temp);
+		free(temp);
+		free(temp2);
+		if (error != 0)
+			return (0);
 		str = get_next_line(STDIN_FILENO);
 	}
 	if (is_sorted(psinfo->stack_a, psinfo->len_a) && psinfo->len_b == 0)
