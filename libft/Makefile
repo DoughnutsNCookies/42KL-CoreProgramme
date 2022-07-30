@@ -63,6 +63,7 @@ SRC_FILES		=	ft_isalpha \
 					ft_prints_with_flags \
 					get_next_line \
 					get_next_line_utils \
+					ft_quicksort \
 					ft_swap \
 					ft_isspace \
 					ft_ultoa_base \

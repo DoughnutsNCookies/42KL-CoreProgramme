@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 11:03:32 by schuah            #+#    #+#             */
-/*   Updated: 2022/07/29 21:24:43 by schuah           ###   ########.fr       */
+/*   Updated: 2022/07/30 13:54:53 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,9 +71,11 @@ void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 void	ft_swap(int *a, int *b);
 int		ft_isspace(char c);
-void	quicksort(int *array, int low, int high);
+void	ft_quicksort(int *array, int low, int high);
 char	*ft_ultoa_base(unsigned long n);
 char	*ft_uitoa_base(unsigned int n, char *base);
 char	*ft_uitoa(unsigned int n);
+int		ft_printf(const char *str, ...);
+char	*get_next_line(int fd);
 
 #endif

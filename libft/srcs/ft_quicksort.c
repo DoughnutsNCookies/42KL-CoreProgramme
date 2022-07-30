@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 21:13:18 by schuah            #+#    #+#             */
-/*   Updated: 2022/07/29 21:13:38 by schuah           ###   ########.fr       */
+/*   Updated: 2022/07/30 13:54:49 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,13 @@ static int	partition(int *array, int low, int high)
 }
 
 /* Quicksort function */
-void	quicksort(int *array, int low, int high)
+void	ft_quicksort(int *array, int low, int high)
 {
 	int	pivot_index;
 
 	if (low > high)
 		return ;
 	pivot_index = partition(array, low, high);
-	quicksort(array, low, pivot_index - 1);
-	quicksort(array, pivot_index + 1, high);
+	ft_quicksort(array, low, pivot_index - 1);
+	ft_quicksort(array, pivot_index + 1, high);
 }
