@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 13:29:20 by schuah            #+#    #+#             */
-/*   Updated: 2022/07/30 17:57:28 by schuah           ###   ########.fr       */
+/*   Updated: 2022/07/30 18:31:50 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,8 +113,6 @@ int	get_data(t_psinfo *psinfo, char **av)
 		return (write(2, "Error: Number greater than INT_MAX\n", 35));
 	if (errno == 4)
 		return (write(2, "Error: There is a duplicate number\n", 35));
-	ps_printall(psinfo);
-	exit(1);
 	get_converted_stack(psinfo);
 	if (is_sorted(psinfo->stack_a, psinfo->len_a) == 1)
 		return (0);
