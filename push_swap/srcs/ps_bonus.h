@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 14:42:09 by schuah            #+#    #+#             */
-/*   Updated: 2022/07/30 14:02:13 by schuah           ###   ########.fr       */
+/*   Updated: 2022/07/30 17:57:16 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int		get_data(t_psinfo *psinfo, char **av);
 int		*get_stack(t_psinfo *psinfo, char c);
 void	get_converted_stack(t_psinfo *psinfo);
 int		get_error(t_psinfo *psinfo, char *str, int j);
+int		check_empty(char *str);
 
 /* Quick sort function to sort an array */
 void	quicksort(int *array, int low, int high);

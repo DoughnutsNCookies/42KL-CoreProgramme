@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 16:17:52 by schuah            #+#    #+#             */
-/*   Updated: 2022/07/30 13:59:06 by schuah           ###   ########.fr       */
+/*   Updated: 2022/07/30 18:02:35 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static char	*get_inputstr(t_psinfo *psinfo, char **av)
 		return (NULL);
 	while (av[++i] != 0)
 	{
-		if (av[i][0] == '\0')
+		if (av[i][0] == '\0' || check_empty(av[i]))
 		{
 			free(output);
 			return (NULL);

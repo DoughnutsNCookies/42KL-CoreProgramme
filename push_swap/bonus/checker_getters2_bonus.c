@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 16:18:58 by schuah            #+#    #+#             */
-/*   Updated: 2022/07/30 13:51:34 by schuah           ###   ########.fr       */
+/*   Updated: 2022/07/30 18:02:58 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,5 +100,17 @@ int	is_sorted(int *array, int len)
 		if (array[i - 1] > array[i])
 			return (0);
 	}
+	return (1);
+}
+
+/* Checks whether the string has numbers in it */
+int	check_empty(char *str)
+{
+	int	i;
+
+	i = -1;
+	while (str[++i] != '\0')
+		if (ft_isdigit(str[i]))
+			return (0);
 	return (1);
 }

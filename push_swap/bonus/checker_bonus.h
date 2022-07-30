@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 18:26:17 by schuah            #+#    #+#             */
-/*   Updated: 2022/07/30 16:37:59 by schuah           ###   ########.fr       */
+/*   Updated: 2022/07/30 18:04:25 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct s_psinfo
 int		get_data(t_psinfo *psinfo, char **av);
 int		*get_stack(t_psinfo *psinfo, char c);
 int		get_error(t_psinfo *psinfo, char *str, int j);
+int		check_empty(char *str);
 
 /* Quick sort function to sort an array */
 int		is_sorted(int *array, int len);
