@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 16:17:52 by schuah            #+#    #+#             */
-/*   Updated: 2022/07/30 18:02:35 by schuah           ###   ########.fr       */
+/*   Updated: 2022/07/30 19:52:01 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,18 +128,9 @@ static void	get_input(t_psinfo *psinfo, char **av)
 ** outputs the respective error messages based on the errno received */
 int	get_data(t_psinfo *psinfo, char **av)
 {
-	int	errno;
-
 	get_input(psinfo, av);
-	errno = get_input_from_av(psinfo, av);
-	if (errno == 1)
-		return (write(2, "Error: Input is not a number\n", 29));
-	if (errno == 2)
-		return (write(2, "Error: Number smaller than INT_MIN\n", 35));
-	if (errno == 3)
-		return (write(2, "Error: Number greater than INT_MAX\n", 35));
-	if (errno == 4)
-		return (write(2, "Error: There is a duplicate number\n", 35));
+	if (get_input_from_av(psinfo, av))
+		return (write(2, "Error\n", 6));
 	get_converted_stack(psinfo);
 	return (0);
 }

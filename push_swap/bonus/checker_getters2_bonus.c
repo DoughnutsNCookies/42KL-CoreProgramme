@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 16:18:58 by schuah            #+#    #+#             */
-/*   Updated: 2022/07/30 18:02:58 by schuah           ###   ########.fr       */
+/*   Updated: 2022/07/30 19:51:11 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,13 +79,13 @@ int	get_error(t_psinfo *psinfo, char *str, int j)
 		}
 	}
 	if (ft_atoi(str) < -2147483648)
-		return (2);
+		return (1);
 	if (ft_atoi(str) > 2147483647)
-		return (3);
+		return (1);
 	i = -1;
 	while (++i < j)
 		if (psinfo->stack_a[i] == ft_atoi(str))
-			return (4);
+			return (1);
 	return (0);
 }
 
