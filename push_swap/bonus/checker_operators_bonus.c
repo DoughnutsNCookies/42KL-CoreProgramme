@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 12:26:55 by schuah            #+#    #+#             */
-/*   Updated: 2022/07/30 12:42:52 by schuah           ###   ########.fr       */
+/*   Updated: 2022/07/30 15:35:20 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,16 @@ void	stack_op(t_psinfo *psinfo, char *str)
 	if (ft_strncmp(str, "sa", 3) == 0 || ft_strncmp(str, "sb", 3) == 0
 		|| ft_strncmp(str, "ss", 3) == 0)
 		ps_s(psinfo, str, 0);
-	if (ft_strncmp(str, "pa", 3) == 0 || ft_strncmp(str, "pb", 3) == 0)
+	else if (ft_strncmp(str, "pa", 3) == 0 || ft_strncmp(str, "pb", 3) == 0)
 		ps_p(psinfo, str, 0);
-	if (ft_strncmp(str, "rra", 4) == 0 || ft_strncmp(str, "rrb", 4) == 0
+	else if (ft_strncmp(str, "rra", 4) == 0 || ft_strncmp(str, "rrb", 4) == 0
 		|| ft_strncmp(str, "rrr", 4) == 0)
 		ps_rr(psinfo, str, 0);
-	if (ft_strncmp(str, "ra", 3) == 0 || ft_strncmp(str, "rb", 3) == 0
+	else if (ft_strncmp(str, "ra", 3) == 0 || ft_strncmp(str, "rb", 3) == 0
 		|| ft_strncmp(str, "rr", 3) == 0)
 		ps_r(psinfo, str, 0);
+	else
+		ft_printf("Error: Invalid instruction\n");
 }
 
 /* Swap the first 2 numbers at the top of the stack */

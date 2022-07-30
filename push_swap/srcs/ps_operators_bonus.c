@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 12:11:37 by schuah            #+#    #+#             */
-/*   Updated: 2022/07/30 12:29:34 by schuah           ###   ########.fr       */
+/*   Updated: 2022/07/30 15:33:04 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ void	stack_op(t_psinfo *psinfo, char *str)
 	if (ft_strncmp(str, "sa", 3) == 0 || ft_strncmp(str, "sb", 3) == 0
 		|| ft_strncmp(str, "ss", 3) == 0)
 		ps_s(psinfo, str, 1);
-	if (ft_strncmp(str, "pa", 3) == 0 || ft_strncmp(str, "pb", 3) == 0)
+	else if (ft_strncmp(str, "pa", 3) == 0 || ft_strncmp(str, "pb", 3) == 0)
 		ps_p(psinfo, str, 1);
-	if (ft_strncmp(str, "rra", 4) == 0 || ft_strncmp(str, "rrb", 4) == 0
+	else if (ft_strncmp(str, "rra", 4) == 0 || ft_strncmp(str, "rrb", 4) == 0
 		|| ft_strncmp(str, "rrr", 4) == 0)
 		ps_rr(psinfo, str, 1);
-	if (ft_strncmp(str, "ra", 3) == 0 || ft_strncmp(str, "rb", 3) == 0
+	else if (ft_strncmp(str, "ra", 3) == 0 || ft_strncmp(str, "rb", 3) == 0
 		|| ft_strncmp(str, "rr", 3) == 0)
 		ps_r(psinfo, str, 1);
 }

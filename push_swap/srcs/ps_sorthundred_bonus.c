@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 16:18:10 by schuah            #+#    #+#             */
-/*   Updated: 2022/07/30 13:57:12 by schuah           ###   ########.fr       */
+/*   Updated: 2022/07/30 15:40:16 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,6 @@ int	ps_sorthundred(t_psinfo *psinfo)
 
 	chunk_size = psinfo->len_a / 12 + 30;
 	make_stacks(psinfo, chunk_size, 1, 0);
-	// sort_back(psinfo);
+	sort_back(psinfo);
 	return (0);
 }
